@@ -104,3 +104,23 @@ kubeadm token create
 openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2>/dev/null | \
 openssl dgst -sha256 -hex | sed 's/^.* //'
 ```
+
+## Kube Reset
+
+### kubeadm reset
+The "reset" command executes the following phases:
+```bash
+# preflight           Run reset pre-flight checks
+# remove-etcd-member  Remove a local etcd member.
+# cleanup-node        Run cleanup node.
+
+kubeadm reset [flags]
+
+```
+
+### External etcd clean up
+`kubeadm` reset will not delete any etcd data if external etcd is used. This means that if you run `kubeadm init` again using the same etcd endpoints, you will see state from previous clusters.
+
+```bash
+etcdctl del "" --prefix
+```
