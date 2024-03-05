@@ -76,7 +76,7 @@ sudo apt-get install helm
 ## Install cni
 ```bash
 helm repo add cilium https://helm.cilium.io/
-helm install cilium cilium/cilium --version 1.11.6 --namespace kube-system
+helm install cilium cilium/cilium --version 1.15.1 --namespace kube-system
 ```
 
 ## Add master node
