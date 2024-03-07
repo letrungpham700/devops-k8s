@@ -36,6 +36,7 @@ net.ipv4.ip_forward                 = 1
 net.bridge.bridge-nf-call-ip6tables = 1
 EOF
 sudo sysctl --system
+apt-get update
 sudo apt install containerd -y
 mkdir /etc/containerd
 containerd config default > /etc/containerd/config.toml
